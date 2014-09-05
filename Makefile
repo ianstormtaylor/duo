@@ -8,7 +8,8 @@ test: clean node_modules
 	@$(BIN)/gnode $(BIN)/_mocha \
 		--reporter $(REPORTER) \
 		--require co-mocha \
-		--timeout 5s
+		--timeout 5s \
+		--bail
 
 node_modules: package.json
 	@npm install
