@@ -81,7 +81,6 @@ if (dupes.length) process.exit(1);
  *
  * @param {Object} map
  * @return {Object}
- * @api private
  */
 
 function duplicates(map) {
@@ -149,7 +148,6 @@ function duplicates(map) {
  * @parma {String} id
  * @param {Object} map
  * @return {Number}
- * @api private
  */
 
 function size(id, map) {
@@ -172,7 +170,6 @@ function size(id, map) {
  * Get version of `dep`.
  *
  * @return {String}
- * @api private
  */
 
 function version(dep) {
@@ -186,7 +183,6 @@ function version(dep) {
  *
  * @param {String} key
  * @return {String}
- * @api private
  */
 
 function normalize(key) {
@@ -198,7 +194,6 @@ function normalize(key) {
  *
  * @param {Array} dupes
  * @return {Number} n
- * @api private
  */
 
 function total(dupes) {
@@ -212,7 +207,6 @@ function total(dupes) {
  *
  * @param {Object} obj
  * @return {Array}
- * @api private
  */
 
 function values(obj) {

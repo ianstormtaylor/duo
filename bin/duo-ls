@@ -102,7 +102,6 @@ console.log();
  * @param {Number} depth
  * @param {Object} node
  * @return {Array}
- * @api private
  */
 
 function list(map, depth, node){
@@ -140,7 +139,6 @@ function list(map, depth, node){
  *
  * @param {Object} obj
  * @return {Array}
- * @api private
  */
 
 function values(obj) {
@@ -154,7 +152,6 @@ function values(obj) {
  *
  * @param {String} path
  * @return {String}
- * @api private
  */
 
 function read(path) {
@@ -166,7 +163,6 @@ function read(path) {
  *
  * @param {String} dep
  * @return {String}
- * @api private
  */
 
 function pretty(dep) {
@@ -190,7 +186,6 @@ function pretty(dep) {
  * @param {Array} nodes
  * @param {Object} node
  * @return {Boolean}
- * @api private
  */
 
 function has(nodes, node) {

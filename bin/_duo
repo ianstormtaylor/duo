@@ -189,8 +189,6 @@ else program.help();
 
 /**
  * Accept standard input.
- *
- * @api private
  */
 
 function input() {
@@ -210,7 +208,6 @@ function input() {
  * Build the entries.
  *
  * @param {Array} entries
- * @api private
  */
 
 function build(entries) {
@@ -228,7 +225,6 @@ function build(entries) {
  * Print to stdout.
  *
  * @param {String} entry
- * @api private
  */
 
 function print(entry) {
@@ -248,7 +244,6 @@ function print(entry) {
  * Write the entries.
  *
  * @param {Array} entries
- * @api private
  */
 
 function write(entries) {
@@ -285,7 +280,6 @@ function write(entries) {
  *
  * @param {entry} entry
  * @return {Duo}
- * @api private
  */
 
 function create(entry) {
@@ -327,7 +321,6 @@ function create(entry) {
  * Watch.
  *
  * @param {Function} action
- * @api private
  */
 
 function watch(action) {
@@ -389,7 +382,6 @@ function findroot(root) {
  *
  * @param {Array} entries
  * @return {String|Boolean}
- * @api private
  */
 
 function assets(entries) {
@@ -404,7 +396,6 @@ function assets(entries) {
  *
  * @param {String} entry
  * @return {Boolean}
- * @api private
  */
 
 function globs(path) {
@@ -416,7 +407,6 @@ function globs(path) {
  *
  * @param {String} path
  * @return {Boolean}
- * @api private
  */
 
 function isFile(path) {
@@ -434,7 +424,6 @@ function isFile(path) {
  *
  * @param {String} plugins
  * @return {Array}
- * @api private
  */
 
 function usePlugins(use) {

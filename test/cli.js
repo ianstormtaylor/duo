@@ -335,7 +335,6 @@ describe('Duo CLI', function () {
  *
  * @param {String} fixture
  * @return {String}
- * @api private
  */
 
 function path(fixture) {
@@ -346,7 +345,6 @@ function path(fixture) {
  * Remove a `fixture`.
  *
  * @param {String} fixture
- * @api private
  */
 
 function rm(fixture) {
@@ -359,7 +357,6 @@ function rm(fixture) {
  *
  * @param {String} fixture
  * @return {Object}
- * @api private
  */
 
 function *build(fixture) {
@@ -372,7 +369,6 @@ function *build(fixture) {
 /**
  * Cleanup after the tests.
  *
- * @api private
  */
 
 function cleanup() {
@@ -392,7 +388,6 @@ function cleanup() {
  *
  * @param {String} file
  * @return {Boolean}
- * @api private
  */
 
 function exists(file) {
@@ -403,7 +398,6 @@ function exists(file) {
  * Evaluate a Javascript `string` with optional `ctx`.
  *
  * @return {Object}
- * @api private
  */
 
 function evaluate(js, ctx) {
@@ -419,7 +413,6 @@ function evaluate(js, ctx) {
  * @param {String} cmd
  * @param {String} cwd
  * @return {Object}
- * @api private
  */
 
 function *exec(cmd, cwd) {
@@ -433,7 +426,6 @@ function *exec(cmd, cwd) {
  *
  * @param {String} cmd
  * @param {Object} opts
- * @api private
  */
 
 function execute(cmd, opts) {
@@ -454,7 +446,6 @@ function execute(cmd, opts) {
  * @param {String} needle
  * @param {String} haystack
  * @return {Boolean}
- * @api private
  */
 
 function contains(haystack, needle) {

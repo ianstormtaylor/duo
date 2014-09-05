@@ -724,7 +724,6 @@ describe('Duo API', function () {
  *
  * @param {String} fixture
  * @return {String}
- * @api private
  */
 
 function build(fixture, file) {
@@ -738,7 +737,6 @@ function build(fixture, file) {
  *
  * @param {String} paths...
  * @return {String}
- * @api private
  */
 
 function path() {
@@ -751,7 +749,6 @@ function path() {
  *
  * @param {String} file
  * @return {Boolean}
- * @api private
  */
 
 function exists(file) {
@@ -820,7 +817,6 @@ function read(path) {
  *
  * @param {String} path
  * @return {Boolean}
- * @api private
  */
 
 function isSymlink(path) {
@@ -832,7 +828,6 @@ function isSymlink(path) {
  * A Duo plugin to compile a Coffeescript `file`.
  *
  * @param {File} file
- * @api private
  */
 
 function cs(file) {
@@ -845,7 +840,6 @@ function cs(file) {
  * A Duo plugin to compile a Stylus `file`.
  *
  * @param {File} file
- * @api private
  */
 
 function stylus(file) {
