@@ -12,7 +12,7 @@ var cwd = process.cwd();
 var fs = require('fs');
 
 /**
- * Paths
+ * Paths.
  */
 
 var mapping = join(process.cwd())
@@ -27,7 +27,7 @@ logger.type('error', '31m', function(){
 });
 
 /**
- * Program
+ * Program.
  */
 
 program
@@ -36,7 +36,7 @@ program
   .parse(process.argv);
 
 /**
- * Examples
+ * Examples.
  */
 
 program.on('--help', function(){
@@ -52,7 +52,7 @@ program.on('--help', function(){
 });
 
 /**
- * Map
+ * Map.
  */
 
 try {
@@ -62,7 +62,7 @@ try {
 }
 
 /**
- * Component
+ * Component.
  */
 
 try {
@@ -72,13 +72,13 @@ try {
 }
 
 /**
- * Max depth
+ * Max depth.
  */
 
 var max = program.depth || Infinity;
 
 /**
- * List
+ * List.
  */
 
 var ls = list(map, 0, {
@@ -88,7 +88,7 @@ var ls = list(map, 0, {
 });
 
 /**
- * Print
+ * Print.
  */
 
 console.log();
@@ -96,7 +96,7 @@ console.log(archy(ls, '  '));
 console.log();
 
 /**
- * List using `map` and `depth`
+ * List using `map` and `depth`.
  *
  * @param {Object} map
  * @param {Number} depth
@@ -136,7 +136,11 @@ function list(map, depth, node){
 }
 
 /**
- * Object values.
+ * Get the values of an `obj`.
+ *
+ * @param {Object} obj
+ * @return {Array}
+ * @api private
  */
 
 function values(obj){
@@ -146,9 +150,11 @@ function values(obj){
 }
 
 /**
- * Read
+ * Read a `path` from disk.
  *
  * @param {String} path
+ * @return {String}
+ * @api private
  */
 
 function read(path) {
@@ -157,6 +163,10 @@ function read(path) {
 
 /**
  * Color the given `dep`
+ *
+ * @param {String} dep
+ * @return {String}
+ * @api private
  */
 
 function pretty(dep){
@@ -179,10 +189,13 @@ function pretty(dep){
  *
  * @param {Array} nodes
  * @param {Object} node
+ * @return {Boolean}
+ * @api private
  */
 
 function has(nodes, node){
   for (var i = 0; i < nodes.length; ++i) {
     if (nodes[i].name == node.name) return true;
   }
+  return false;
 }

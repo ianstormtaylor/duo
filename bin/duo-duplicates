@@ -11,7 +11,7 @@ var archy = require('archy');
 var bytes = require('bytes');
 
 /**
- * Program
+ * Program.
  */
 
 program
@@ -19,7 +19,7 @@ program
   .parse(process.argv);
 
 /**
- * Help
+ * Help.
  */
 
 program.on('--help', function(){
@@ -39,8 +39,7 @@ program.on('--help', function(){
 });
 
 /**
- * Get component.json
- * and mapping.json
+ * Read component.json and mapping.json.
  */
 
 try {
@@ -56,21 +55,20 @@ try {
 }
 
 /**
- * All duplicates
+ * All duplicates.
  */
 
 var dupes = duplicates(map);
 
 /**
- * Show total bytes saved if duplicates
- * are removed.
+ * Show total bytes saved if duplicates are removed.
  */
 
 console.log();
 console.log('  \033[36mtotal duplicates\033[m : \033[90m%s\033[m', bytes(total(dupes)));
 
 /**
- * Duplicates
+ * Duplicates.
  */
 
 console.log(archy({ nodes: dupes }, '  '));
@@ -83,9 +81,10 @@ if (dupes.length) process.exit(1);
  *
  * @param {Object} map
  * @return {Object}
+ * @api private
  */
 
-function duplicates(map){
+function duplicates(map) {
   var pkgs = Object.keys(map);
   var dupes = {};
   var ret = [];
@@ -120,7 +119,7 @@ function duplicates(map){
     .map(users);
 
   // Set the label.
-  function label(node){
+  function label(node) {
     var revs = node.versions.join(', ');
     var size = bytes(node.size);
     node.label = fmt('\033[36m%s - (%s) - %s\033[m', node.repo, revs, size);
@@ -128,7 +127,7 @@ function duplicates(map){
   }
 
   // get all users
-  function users(node){
+  function users(node) {
     pkgs.forEach(function(id){
       var deps = values(map[id].deps);
       deps.forEach(function(dep){
@@ -150,9 +149,10 @@ function duplicates(map){
  * @parma {String} id
  * @param {Object} map
  * @return {Number}
+ * @api private
  */
 
-function size(id, map){
+function size(id, map) {
   var deps = map[id].deps;
   var src = map[id].src;
   var length = Buffer.byteLength(src);
@@ -172,9 +172,10 @@ function size(id, map){
  * Get version of `dep`.
  *
  * @return {String}
+ * @api private
  */
 
-function version(dep){
+function version(dep) {
   var repo = dep.split('/')[1];
   if (!repo) return dep;
   return repo.split('@')[1];
@@ -185,9 +186,10 @@ function version(dep){
  *
  * @param {String} key
  * @return {String}
+ * @api private
  */
 
-function normalize(key){
+function normalize(key) {
   return key.split('/')[1] || key;
 }
 
@@ -196,9 +198,10 @@ function normalize(key){
  *
  * @param {Array} dupes
  * @return {Number} n
+ * @api private
  */
 
-function total(dupes){
+function total(dupes) {
   return dupes.reduce(function(t, d){
     return t += d.size - d.size / d.versions.length;
   }, 0);
@@ -209,9 +212,10 @@ function total(dupes){
  *
  * @param {Object} obj
  * @return {Array}
+ * @api private
  */
 
-function values(obj){
+function values(obj) {
   var ret = [];
   for (var k in obj) ret.push(obj[k]);
   return ret;

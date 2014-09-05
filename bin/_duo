@@ -22,7 +22,7 @@ var cwd = process.cwd();
 var Duo = require('..');
 
 /**
- * Logger
+ * Logger.
  */
 
 var logger = new Logger(process.stderr)
@@ -35,7 +35,7 @@ var logger = new Logger(process.stderr)
   .type('using', '36m');
 
 /**
- * Error
+ * Error.
  */
 
 logger.type('error', '31m', function(){
@@ -44,7 +44,7 @@ logger.type('error', '31m', function(){
 });
 
 /**
- * Program
+ * Program.
  */
 
 var program = new Command('duo')
@@ -63,7 +63,7 @@ var program = new Command('duo')
   .parse(process.argv);
 
 /**
- * Help
+ * Help.
  */
 
 program.on('--help', function(){
@@ -97,19 +97,19 @@ program.on('--help', function(){
 });
 
 /**
- * Command
+ * Command.
  */
 
 var command = program.args[0];
 
 /**
- * $PATH
+ * $PATH.
  */
 
 var paths = [__dirname].concat(process.env.PATH.split(':'));
 
 /**
- * Bin
+ * Bin.
  */
 
 var bin = ['duo', command].join('-');
@@ -121,30 +121,31 @@ var bin = ['duo', command].join('-');
 var quiet = program.quiet;
 
 /**
- * Root
+ * Root.
  */
 
 var root = findroot(program.root);
 
 /**
- * Asset path
+ * Asset path.
  */
 
 var outdir = assets(program.args);
 
 /**
- * Watching
+ * Watching.
  */
 
 var watching = false;
 
 /**
- * Plugins
+ * Plugins.
  */
+
 var plugins = usePlugins(program.use);
 
 /**
- * Custom executable
+ * Custom executable.
  */
 
 if (command && !isFile(command)) {
@@ -179,7 +180,7 @@ if (command && !isFile(command)) {
 }
 
 /**
- * Actions
+ * Actions.
  */
 
 if (command) build(program.args.filter(globs));
@@ -187,7 +188,7 @@ else if (!process.stdin.isTTY) input();
 else program.help();
 
 /**
- * Accept standard input
+ * Accept standard input.
  *
  * @api private
  */
@@ -206,7 +207,7 @@ function input() {
 }
 
 /**
- * Build the entries
+ * Build the entries.
  *
  * @param {Array} entries
  * @api private
@@ -224,7 +225,7 @@ function build(entries) {
 }
 
 /**
- * Print to stdout
+ * Print to stdout.
  *
  * @param {String} entry
  * @api private
@@ -244,7 +245,7 @@ function print(entry) {
 }
 
 /**
- * Write the entries
+ * Write the entries.
  *
  * @param {Array} entries
  * @api private
@@ -280,7 +281,7 @@ function write(entries) {
 }
 
 /**
- * Create a duo instance
+ * Create a duo instance.
  *
  * @param {entry} entry
  * @return {Duo}
@@ -323,7 +324,7 @@ function create(entry) {
 }
 
 /**
- * Watch
+ * Watch.
  *
  * @param {Function} action
  * @api private
@@ -336,7 +337,7 @@ function watch(action) {
 }
 
 /**
- * Log an event
+ * Log an event.
  *
  * @param {String} event
  * @return {Function}
@@ -351,7 +352,7 @@ function log (event) {
 }
 
 /**
- * Error
+ * Error.
  */
 
 function error(err) {
@@ -361,7 +362,7 @@ function error(err) {
 }
 
 /**
- * Find the root
+ * Find the root.
  *
  * @param {String} root
  * @param {String}
@@ -384,8 +385,7 @@ function findroot(root) {
 }
 
 /**
- * Check if `entries` contains
- * an asset path
+ * Check if `entries` contains an asset path.
  *
  * @param {Array} entries
  * @return {String|Boolean}
@@ -400,7 +400,7 @@ function assets(entries) {
 }
 
 /**
- * Filter out unexpanded globs
+ * Filter out unexpanded globs.
  *
  * @param {String} entry
  * @return {Boolean}
@@ -412,8 +412,7 @@ function globs(path) {
 }
 
 /**
- * Simple hueristic to check
- * if `path` is a file
+ * Simple hueristic to check if `path` is a file.
  *
  * @param {String} path
  * @return {Boolean}
@@ -431,7 +430,7 @@ function isFile(path) {
 }
 
 /**
- * Retrieve an array of plugins from --use
+ * Retrieve an array of plugins from `--use`.
  *
  * @param {String} plugins
  * @return {Array}
