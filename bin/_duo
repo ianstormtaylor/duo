@@ -38,7 +38,7 @@ var logger = new Logger(process.stderr)
  * Error.
  */
 
-logger.type('error', '31m', function(){
+logger.type('error', '31m', function () {
   logger.end();
   process.exit(1);
 });
@@ -66,7 +66,7 @@ var program = new Command('duo')
  * Help.
  */
 
-program.on('--help', function(){
+program.on('--help', function () {
   console.log('  Usage:');
   console.log();
   console.log('  # build in.js to out.js');
@@ -152,7 +152,7 @@ if (command && !isFile(command)) {
   var args = process.argv.slice(3);
 
   // find executable
-  var exec = paths.reduce(function(binary, path){
+  var exec = paths.reduce(function (binary, path) {
     path = resolve(path, bin);
     return exists(path) && stat(path)
       ? path
@@ -194,10 +194,10 @@ else program.help();
  */
 
 function input() {
-  stdin(function(src) {
+  stdin(function (src) {
     var duo = create(root).src(src, program.type);
 
-    duo.run(function(err, str) {
+    duo.run(function (err, str) {
       if (err) throw error(err);
       logger.end();
       stdout.write(str);
@@ -232,7 +232,7 @@ function build(entries) {
  */
 
 function print(entry) {
-  create(entry).run(function(err, src) {
+  create(entry).run(function (err, src) {
     if (err) return error(err);
     logger.end();
     stdout.write(src);
@@ -261,7 +261,7 @@ function write(entries) {
     .map(multiple)
     .map(push);
 
-  batch.end(function(err) {
+  batch.end(function (err) {
     if (err) return error(err);
     logger.end();
 
@@ -274,7 +274,7 @@ function write(entries) {
   // write multiple entries to
   // the directory `out`
   function multiple(entry) {
-    return function(done) {
+    return function (done) {
       create(entry).write(done);
     }
   }
@@ -344,7 +344,7 @@ function watch(action) {
  */
 
 function log (event) {
-  return function(pkg) {
+  return function (pkg) {
     pkg = pkg.slug ? pkg.slug() : pkg;
     pkg = 'source.' + (program.type || 'js') == pkg ? 'from stdin' : pkg;
     logger[event](pkg);

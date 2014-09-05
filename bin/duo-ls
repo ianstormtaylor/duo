@@ -15,13 +15,13 @@ var fs = require('fs');
  * Paths.
  */
 
-var mapping = join(process.cwd())
+var mapping = join(process.cwd());
 
 /**
  * Logger.
  */
 
-logger.type('error', '31m', function(){
+logger.type('error', '31m', function () {
   logger.end();
   process.exit(1);
 });
@@ -39,7 +39,7 @@ program
  * Examples.
  */
 
-program.on('--help', function(){
+program.on('--help', function () {
   console.log('  Examples:');
   console.log();
   console.log('    # list all dependencies');
@@ -108,7 +108,7 @@ console.log();
 function list(map, depth, node){
   var deps = values(map[node.name].deps);
 
-  deps.forEach(function(dep){
+  deps.forEach(function (dep) {
     if (depth == max) return;
     var label = pretty(dep);
     var child = { nodes: [], label: label, name: dep };
@@ -143,7 +143,7 @@ function list(map, depth, node){
  * @api private
  */
 
-function values(obj){
+function values(obj) {
   var ret = [];
   for (var k in obj) ret.push(obj[k]);
   return ret;
@@ -169,7 +169,7 @@ function read(path) {
  * @api private
  */
 
-function pretty(dep){
+function pretty(dep) {
   var name = dep.split('@')[0];
   var version = dep.split('@')[1];
 
@@ -193,7 +193,7 @@ function pretty(dep){
  * @api private
  */
 
-function has(nodes, node){
+function has(nodes, node) {
   for (var i = 0; i < nodes.length; ++i) {
     if (nodes[i].name == node.name) return true;
   }

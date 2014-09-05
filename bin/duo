@@ -25,6 +25,6 @@ var proc = spawn(gnode, args, { stdio: 'inherit' });
  * Exit.
  */
 
-proc.on('exit', function(code){
+proc.on('exit', function (code) {
   process.exit(code);
 });

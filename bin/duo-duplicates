@@ -22,7 +22,7 @@ program
  * Help.
  */
 
-program.on('--help', function(){
+program.on('--help', function () {
   console.log('Examples:');
   console.log();
   console.log('  #');
@@ -90,7 +90,7 @@ function duplicates(map) {
   var ret = [];
 
   // get all duplicates, get total size.
-  pkgs.forEach(function(id){
+  pkgs.forEach(function (id) {
     var name = normalize(id);
     var parts = name.split('@');
     var repo = parts.shift();
@@ -128,9 +128,9 @@ function duplicates(map) {
 
   // get all users
   function users(node) {
-    pkgs.forEach(function(id){
+    pkgs.forEach(function (id) {
       var deps = values(map[id].deps);
-      deps.forEach(function(dep){
+      deps.forEach(function (dep) {
         if (!~node.ids.indexOf(dep)) return;
         var nodes = node.nodes = node.nodes || [];
         id = normalize(id);
@@ -202,7 +202,7 @@ function normalize(key) {
  */
 
 function total(dupes) {
-  return dupes.reduce(function(t, d){
+  return dupes.reduce(function (t, d) {
     return t += d.size - d.size / d.versions.length;
   }, 0);
 }
