@@ -1,5 +1,6 @@
+
 /**
- * Module Dependencies
+ * Module dependencies.
  */
 
 var readdir = require('fs').readdirSync;
@@ -22,7 +23,7 @@ var vm = require('vm');
 var slice = [].slice;
 
 /**
- * Tests
+ * Tests.
  */
 
 describe('Duo API', function () {
@@ -719,10 +720,11 @@ describe('Duo API', function () {
 });
 
 /**
- * Build js `fixture` and return `str`.
+ * Build a `fixture` with an optional entry `file`, and return the built source.
  *
  * @param {String} fixture
  * @return {String}
+ * @api private
  */
 
 function build(fixture, file) {
@@ -732,20 +734,20 @@ function build(fixture, file) {
 }
 
 /**
- * Path to `fixture`
+ * Resolve the path to a fixture.
  *
- * @param {String, ...} paths
+ * @param {String} paths...
  * @return {String}
  * @api private
  */
 
-function path(fixture) {
+function path() {
   var paths = slice.call(arguments);
   return join.apply(null, [__dirname, 'fixtures'].concat(paths));
 }
 
 /**
- * Check if a file exists
+ * Check if a `file` exists.
  *
  * @param {String} file
  * @return {Boolean}
@@ -757,8 +759,10 @@ function exists(file) {
 }
 
 /**
- * Evaluate `js`.
+ * Evaluate a Javascript `string` with `ctx`.
  *
+ * @param {String} string
+ * @param {Object} ctx
  * @return {Object}
  */
 
@@ -770,7 +774,7 @@ function evaluate(js, ctx) {
 }
 
 /**
- * Cleanup
+ * Cleanup after the tests.
  */
 
 function cleanup() {
@@ -786,7 +790,10 @@ function cleanup() {
 }
 
 /**
- * Get the mapping
+ * Get the mapping from a `fixture`.
+ *
+ * @param {String} fixture
+ * @return {Object}
  */
 
 function *mapping(fixture) {
@@ -797,7 +804,10 @@ function *mapping(fixture) {
 }
 
 /**
- * Read the file
+ * Read a fixture file by `path`.
+ *
+ * @param {String} path
+ * @return {String}
  */
 
 function read(path) {
@@ -806,11 +816,11 @@ function read(path) {
 }
 
 /**
- * is symbolic link?
+ * Check whether a `path` is a symbolic link.
  *
  * @param {String} path
  * @return {Boolean}
- * @api public
+ * @api private
  */
 
 function isSymlink(path) {
@@ -819,9 +829,10 @@ function isSymlink(path) {
 }
 
 /**
- * Compile coffeescript
+ * A Duo plugin to compile a Coffeescript `file`.
  *
  * @param {File} file
+ * @api private
  */
 
 function cs(file) {
@@ -831,7 +842,10 @@ function cs(file) {
 }
 
 /**
- * Compile stylus
+ * A Duo plugin to compile a Stylus `file`.
+ *
+ * @param {File} file
+ * @api private
  */
 
 function stylus(file) {
